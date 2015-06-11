@@ -1,0 +1,14 @@
+/* コメントのヘッダ */
+.timeline-comment-header .timeline-comment-header-text,
+.timeline-comment-header .timeline-comment-action {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.timeline-comment-header img {
+  margin-top: 5px;
+}
+
+/* コメント本体 */
+.comment-content .comment-body {
+  padding: 5px 20px;
+}
