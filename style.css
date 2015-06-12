@@ -12,3 +12,12 @@
 .comment-content .comment-body {
   padding: 5px 20px;
 }
+
+/* tab文字変換メニュー */
+#GithubCodeReviewHelper-tab-transfer-div {
+  padding: 5px 0px;
+}
+#GithubCodeReviewHelper-tab-transfer-soft-button,
+#GithubCodeReviewHelper-tab-transfer-hard-button {
+  margin: 0px 5px;
+}

@@ -3,13 +3,8 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     return;
   }
 
-  if ('complete' === changeInfo.status) {
-    chrome.pageAction.show(tabId);
-  }
+  chrome.pageAction.show(tabId);
 
+  chrome.tabs.executeScript(tabId, {'file': 'tab_converter.js'});
   chrome.tabs.executeScript(tabId, {'file': 'onupdated.js'});
-});
-
-chrome.pageAction.onClicked.addListener(function(tab) {
-  chrome.tabs.executeScript(tab.id, {'file': 'exec.js'});
 });

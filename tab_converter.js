@@ -1,10 +1,9 @@
-var GithubCodeReviewHelper = (function() {
-  // constructor
-  function GithubCodeReviewHelper()
+var TabConverter = (function() {
+  // constructor ---------------------------------------------------------------
+  function TabConverter()
   {
-    this.tabstop  = 4;
-    this.color    = 'lightgreen';
-    this.bg_color = 'none';
+    this.tabstop = 4;
+    this.color   = 'lightgreen';
 
     // tab文字を作成する
     this.tab_str_arr = ['|'];
@@ -13,8 +12,17 @@ var GithubCodeReviewHelper = (function() {
     }
   }
 
-  // public
-  function exec()
+  // public --------------------------------------------------------------------
+  function execSoft()
+  {
+    var elms  = document.getElementsByClassName('blob-code-inner');
+    var count = elms.length;
+    for (var i = 0; i < count; i++) {
+      elms[i].innerHTML = elms[i].innerHTML.replace(/\t/g, '<span style="color:' + this.color + '">' + this.tab_str_arr[this.tabstop - 1] + '</span>');
+    }
+  }
+
+  function execHard()
   {
     var elms  = document.getElementsByClassName('pl-s1');
     var count = elms.length;
@@ -65,7 +73,6 @@ var GithubCodeReviewHelper = (function() {
 
         var tab_span = document.createElement('span');
         tab_span.style.color = this.color;
-//        tab_span.style.backgroundColor = this.bg_color;
         tab_span.textContent = this.tab_str_arr[tab_len_seeming - 1];
 
         content_arr.push(fragment, tab_span);
@@ -91,15 +98,13 @@ var GithubCodeReviewHelper = (function() {
     return span;
   }
 
-  GithubCodeReviewHelper.prototype = {
-    constructor: GithubCodeReviewHelper,
-    exec: exec,
+  TabConverter.prototype = {
+    constructor: TabConverter,
+    execSoft: execSoft,
+    execHard: execHard,
     editLine: editLine,
     replaceTab: replaceTab,
   };
 
-  return GithubCodeReviewHelper;
+  return TabConverter;
 })();
-
-var helper = new GithubCodeReviewHelper();
-helper.exec();
