@@ -10,7 +10,7 @@
     var button_soft = document.createElement('button');
     button_soft.id        = button_id_soft;
     button_soft.className = 'btn btn-sm';
-    button_soft.innerHTML = 'soft';
+    button_soft.innerHTML = 'Soft';
     button_soft.onclick   = function() {
       var converter = new TabConverter();
       converter.execSoft();
@@ -20,7 +20,7 @@
     var button_hard = document.createElement('button');
     button_hard.id        = button_id_hard;
     button_hard.className = 'btn btn-sm';
-    button_hard.innerHTML = 'hard';
+    button_hard.innerHTML = 'Hard';
     button_hard.onclick   = function() {
       var converter = new TabConverter();
       converter.execHard();
@@ -50,7 +50,7 @@
     var elm = document.createElement('button');
     elm.id        = button_id;
     elm.className = 'btn btn-sm';
-    elm.innerHTML = 'PAGE TOP';
+    elm.innerHTML = 'Page Top';
     elm.onclick   = function() {
       scrollTo(0, 0);
     };
