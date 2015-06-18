@@ -1,6 +1,6 @@
 {
   "name":        "GithubCodeReviewHelper",
-  "version":     "0.2.0.0",
+  "version":     "0.2.1.0",
   "description": "githubでのコードレビュー支援",
   "manifest_version": 2,
   "permissions": [
@@ -8,7 +8,7 @@
     "https://github.com/*"
   ],
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["app/background.js"]
   },
   "page_action": {
     "default_title": "GithubCodeReviewHelper"
@@ -16,7 +16,7 @@
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
-      "css": ["style.css"]
+      "css": ["css/style.css"]
     }
   ]
 }

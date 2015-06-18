@@ -5,6 +5,6 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 
   chrome.pageAction.show(tabId);
 
-  chrome.tabs.executeScript(tabId, {'file': 'tab_converter.js'});
-  chrome.tabs.executeScript(tabId, {'file': 'onupdated.js'});
+  chrome.tabs.executeScript(tabId, {'file': 'app/class/tab_converter.js'});
+  chrome.tabs.executeScript(tabId, {'file': 'app/onupdated.js'});
 });
