@@ -2,6 +2,10 @@ body {
   padding: 6px;
 }
 
+hr {
+  margin: 10px 0;
+}
+
 #lgtm-reload {
   width: 400px;
 }
@@ -12,7 +16,8 @@ body {
 }
 
 .lgtm-img {
-  width: 400px;
+  max-height: 200px;
+  max-width: 400px;
 }
 
 #lgtm-reload-print {
