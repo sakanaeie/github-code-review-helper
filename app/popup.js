@@ -12,7 +12,6 @@ var displayLGTM = function() {
     $.getJSON('http://www.lgtm.in/g', function(json) {
       var md = '![LGTM](' + json.imageUrl + ')';
       div.append($('<hr>'));
-      div.append($('<input>').attr('class', 'lgtm-url form-control').val(md));
       div.append($('<img>').attr('class', 'lgtm-img img-thumbnail').attr('src', json.imageUrl)
         .click(function() {
           chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
