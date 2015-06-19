@@ -1,9 +1,10 @@
 body {
-  padding: 6px;
+  background-color: #fafafa;
+  padding: 20px;
 }
 
 hr {
-  margin: 10px 0;
+  margin: 16px 0;
 }
 
 #lgtm-reload {
@@ -11,13 +12,13 @@ hr {
 }
 
 .lgtm-url {
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   width: 400px;
 }
 
 .lgtm-img {
-  max-height: 200px;
-  max-width: 400px;
+  max-height: 300px;
+  max-width:  400px;
 }
 
 #lgtm-reload-print {

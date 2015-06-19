@@ -1,6 +1,6 @@
 {
   "name":        "GithubCodeReviewHelper",
-  "version":     "0.3.0.0",
+  "version":     "0.3.1.0",
   "description": "githubでのコードレビュー支援",
   "manifest_version": 2,
   "permissions": [
@@ -21,7 +21,8 @@
       "matches": ["https://github.com/*"],
       "js": [
         "lib/jquery-2.1.4.min.js",
-        "app/class/tab_converter.js"
+        "app/class/tab_converter.js",
+        "app/onmessage.js"
       ],
       "css": ["css/style.css"]
     }

@@ -10,13 +10,21 @@ var displayLGTM = function() {
     $('#lgtm-refresh-animate').addClass('glyphicon glyphicon-refresh glyphicon-refresh-animate');
 
     $.getJSON('http://www.lgtm.in/g', function(json) {
+      var md = '![LGTM](' + json.imageUrl + ')';
       div.append($('<hr>'));
-      div.append($('<input>').attr('class', 'lgtm-url').val('![LGTM](' + json.imageUrl + ')'));
-      div.append($('<img>').attr('class', 'lgtm-img').attr('src', json.imageUrl).load(function() {
-        if (3 <= ++count) {
-          $('#lgtm-refresh-animate').removeClass('glyphicon glyphicon-refresh glyphicon-refresh-animate');
-        }
-      }));
+      div.append($('<input>').attr('class', 'lgtm-url form-control').val(md));
+      div.append($('<img>').attr('class', 'lgtm-img img-thumbnail').attr('src', json.imageUrl)
+        .click(function() {
+          chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {process: 'lgtm', markdown: md}, function(response) {});
+          });
+        })
+        .load(function() {
+          if (3 <= ++count) {
+            $('#lgtm-refresh-animate').removeClass('glyphicon glyphicon-refresh glyphicon-refresh-animate');
+          }
+        })
+      );
     });
   }
 };
