@@ -1,10 +1,11 @@
 {
   "name":        "GithubCodeReviewHelper",
-  "version":     "0.3.1.0",
+  "version":     "0.3.2.0",
   "description": "githubでのコードレビュー支援",
   "manifest_version": 2,
   "permissions": [
     "tabs",
+    "clipboardRead",
     "https://github.com/*"
   ],
   "background": {
