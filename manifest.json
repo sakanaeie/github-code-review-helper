@@ -6,7 +6,8 @@
   "permissions": [
     "tabs",
     "clipboardRead",
-    "https://github.com/*"
+    "https://github.com/*",
+    "http://www.lgtm.in/g"
   ],
   "background": {
     "scripts": [
