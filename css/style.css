@@ -15,7 +15,7 @@
 
 /* tab文字変換メニュー */
 #GithubCodeReviewHelper-tab-transfer-div {
-  padding: 5px 0px;
+  margin-top: 14px;
 }
 #GithubCodeReviewHelper-tab-transfer-soft-button,
 #GithubCodeReviewHelper-tab-transfer-hard-button {

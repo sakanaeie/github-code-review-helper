@@ -19,7 +19,7 @@
 
     // ボタンを配置する
     $('#js-repo-pjax-container').prepend(
-      $('<div>').attr('id', div_id).html('GithubCodeReviewHelper tab transfer :').append(
+      $('<div>').attr('id', div_id).attr('class', 'container commit-tease').html('GithubCodeReviewHelper tab transfer :').append(
         button_soft,
         button_hard
       ),
@@ -34,9 +34,11 @@
 
   if (0 === $('#' + button_id).length) {
     $('#js-repo-pjax-container').append(
-      $('<button>').attr('id', button_id).attr('class', 'btn btn-sm').html('Page top').click(function() {
-        scrollTo(0, 0);
-      })
+      $('<div>').attr('class', 'container').append(
+        $('<button>').attr('id', button_id).attr('class', 'btn btn-sm').html('Page top').click(function() {
+          $('html,body').animate({scrollTop: 0}, 400, 'swing');
+        })
+      )
     );
   }
 })();
