@@ -64,3 +64,31 @@
     }
   });
 })();
+
+// WIPのマージボタンを無効にする
+(function() {
+  var is_wip = false;
+
+  // WIPとみなす文言
+  var wip_str_list = [
+    '[wip]',
+    '[do_not_merge]',
+    '[dont_merge]',
+  ];
+
+  $('.js-issue-title').each(function() {
+    var title = $(this).text().toLowerCase().replace(/ /g, '_');
+    for (var i in wip_str_list) {
+      if (-1 !== title.indexOf(wip_str_list[i])) {
+        is_wip = true;
+        break;
+      }
+    }
+  });
+
+  if (is_wip) {
+    $('.merge-message button').each(function() {
+      $(this).prop('disabled', true);
+    });
+  }
+})();
