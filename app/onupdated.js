@@ -6,20 +6,20 @@
 
   if (0 === $('#' + div_id).length) {
     // Softボタンを生成する
-    var button_soft = $('<button>').attr('id', button_id_soft).attr('class', 'btn btn-sm').html('Soft').click(function() {
+    var button_soft = $('<button>').attr('id', button_id_soft).addClass('btn btn-sm').html('Soft').click(function() {
       var converter = new TabConverter();
       converter.execSoft();
     });
 
     // Hardボタンを生成する
-    var button_hard = $('<button>').attr('id', button_id_hard).attr('class', 'btn btn-sm').html('Hard').click(function() {
+    var button_hard = $('<button>').attr('id', button_id_hard).addClass('btn btn-sm').html('Hard').click(function() {
       var converter = new TabConverter();
       converter.execHard();
     });
 
     // ボタンを配置する
     $('#js-repo-pjax-container').prepend(
-      $('<div>').attr('id', div_id).attr('class', 'container commit-tease').html('GithubCodeReviewHelper tab transfer :').append(
+      $('<div>').attr('id', div_id).addClass('container commit-tease').html('GithubCodeReviewHelper tab transfer :').append(
         button_soft,
         button_hard
       ),
@@ -34,8 +34,8 @@
 
   if (0 === $('#' + button_id).length) {
     $('#js-repo-pjax-container').append(
-      $('<div>').attr('class', 'container').append(
-        $('<button>').attr('id', button_id).attr('class', 'btn btn-sm').html('Page top').click(function() {
+      $('<div>').addClass('container').append(
+        $('<button>').attr('id', button_id).addClass('btn btn-sm').html('Page top').click(function() {
           $('html,body').animate({scrollTop: 0}, 400, 'swing');
         })
       )
@@ -61,6 +61,26 @@
       if (-1 !== name.indexOf('jenkinsbot') || -1 !== name.search(/-bot$/)) {
         $(this).remove();
       }
+    }
+  });
+})();
+
+// releaseと名の付くブランチの削除ボタンを無効にする
+(function() {
+  $('.js-branch-row').each(function() {
+    var is_release = false;
+
+    $(this).find('.branch-name').each(function() {
+      if (-1 !== $(this).text().toLowerCase().indexOf('release')) {
+        is_release = true;
+        return false; // eachをぬける
+      }
+    });
+
+    if (is_release) {
+      $(this).find('.branch-delete').each(function() {
+        $(this).prop('disabled', true).addClass('disabled').attr('aria-label', 'Protected by chrome extension');
+      });
     }
   });
 })();
