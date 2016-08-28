@@ -13,6 +13,23 @@
   }
 })();
 
+// コメント展開ボタンを生成する
+(function() {
+  var button_id = 'GithubCodeReviewHelper-comment-open-button';
+
+  if (0 === $('#' + button_id).length) {
+    $('#partial-discussion-sidebar').append(
+      $('<div>').addClass('discussion-sidebar-item').append(
+        $('<button>').attr('id', button_id).addClass('btn btn-sm').html('Show all comment').click(function() {
+          $('.outdated-diff-comment-container').each(function() {
+            $(this).addClass('open');
+          });
+        })
+      )
+    );
+  }
+})();
+
 // LGTM画像をリサイズする
 (function() {
   $('img').each(function() {
