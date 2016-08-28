@@ -8,7 +8,7 @@ hr {
   margin: 5px 0;
 }
 
-#lgtm-reload {
+#lgtm-reload, #show-tab {
   width:  360px;
 }
 
@@ -17,11 +17,8 @@ hr {
   max-width:  360px;
 }
 
-#lgtm-reload-print {
-  margin: 0 8px;
-}
-
 .glyphicon-refresh-animate {
+  margin: 0 8px;
   -webkit-animation: spinw .7s infinite linear;
 }
 

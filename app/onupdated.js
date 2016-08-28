@@ -1,33 +1,3 @@
-// tab文字変換ボタンを生成する
-(function() {
-  var div_id         = 'GithubCodeReviewHelper-tab-transfer-div';
-  var button_id_soft = 'GithubCodeReviewHelper-tab-transfer-soft-button';
-  var button_id_hard = 'GithubCodeReviewHelper-tab-transfer-hard-button';
-
-  if (0 === $('#' + div_id).length) {
-    // Softボタンを生成する
-    var button_soft = $('<button>').attr('id', button_id_soft).addClass('btn btn-sm').html('Soft').click(function() {
-      var converter = new TabConverter();
-      converter.execSoft();
-    });
-
-    // Hardボタンを生成する
-    var button_hard = $('<button>').attr('id', button_id_hard).addClass('btn btn-sm').html('Hard').click(function() {
-      var converter = new TabConverter();
-      converter.execHard();
-    });
-
-    // ボタンを配置する
-    $('#js-repo-pjax-container').prepend(
-      $('<div>').attr('id', div_id).addClass('container commit-tease').html('GithubCodeReviewHelper tab transfer :').append(
-        button_soft,
-        button_hard
-      ),
-      $('<hr>')
-    );
-  }
-})();
-
 // PageTopボタンを生成する
 (function() {
   var button_id = 'GithubCodeReviewHelper-page-top-button';
