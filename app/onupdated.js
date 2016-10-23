@@ -21,9 +21,11 @@
     $('#partial-discussion-sidebar').append(
       $('<div>').addClass('discussion-sidebar-item').append(
         $('<button>').attr('id', button_id).addClass('btn btn-sm').html('Show all comment').click(function() {
-          $('.outdated-diff-comment-container').each(function() {
+          $('.outdated-comment, .outdated-diff-comment-container').each(function() {
             $(this).addClass('open');
           });
+
+
         })
       )
     );

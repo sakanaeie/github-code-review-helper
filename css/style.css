@@ -1,14 +1,37 @@
-/* コメントのヘッダ */
+/* PRコメントのヘッダ */
 .timeline-comment-header .timeline-comment-header-text,
 .timeline-comment-header .timeline-comment-action {
   padding-top: 5px;
   padding-bottom: 5px;
 }
+/* "owner"のようなラベル */
+.timeline-comment-header .timeline-comment-label {
+  margin-top: 4px;
+}
+/* ユーザアイコン */
 .timeline-comment-header img {
   margin-top: 5px;
 }
 
-/* コメント本体 */
-.comment-content .comment-body {
+/* ファイルコメントのヘッダ */
+.inline-review-comment .file-header,
+.outdated-comment .file-header {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+/* PRコメントの本体 */
+.edit-comment-hide .comment-body {
   padding: 5px 20px;
+}
+
+/* ファイルコメントの本体 */
+.timeline-comment-label .review-comment .comment-body {
+  padding-top: 0px;
+}
+.js-comments-holder .review-comment:first-child {
+  padding-top: 9px;
+}
+.js-comments-holder .review-comment:last-child {
+  padding-bottom: 5px;
 }
