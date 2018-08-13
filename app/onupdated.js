@@ -75,13 +75,14 @@
 })();
 
 // WIPのマージボタンを無効にする
-(function() {
+function disableMergeButtonIfWIP() {
   var is_wip = false;
 
   // WIPとみなす文言
   var wip_str_list = [
     '[wip]',
     '[do_not_merge]',
+    '[donotmerge]',
     '[dont_merge]',
   ];
 
@@ -100,4 +101,53 @@
       $(this).prop('disabled', true);
     });
   }
+}
+disableMergeButtonIfWIP();
+
+// fixup!のマージボタンを無効にする
+function disableMergeButtonIfFIXUP() {
+  var has_fixup = false;
+
+  $('.commit-message > code > a').each(function() {
+    var title = $(this).text();
+    if (0 === title.indexOf('fixup!')) {
+      has_fixup = true;
+      return false; // break
+    }
+  });
+
+  if (has_fixup) {
+    $('.merge-message button').each(function() {
+      $(this).prop('disabled', true);
+    });
+  }
+}
+disableMergeButtonIfFIXUP();
+
+// WIP,fixup!のマージボタンを無効にするため、要素を監視する
+(function() {
+  // WIP
+  var pr_title_observer = new MutationObserver(function(mutations) {
+    disableMergeButtonIfWIP();
+  });
+  pr_title_observer.observe(
+    document.querySelector('span.js-issue-title'),
+    {
+      childList: true,
+      characterData: true,
+      subtree: true,
+    }
+  );
+
+  // fixup!
+  var pr_comment_observer = new MutationObserver(function(mutations) {
+    disableMergeButtonIfFIXUP();
+  });
+  pr_comment_observer.observe(
+    document.querySelector('div.repository-content'),
+    {
+      childList: true,
+      subtree: true,
+    }
+  );
 })();
