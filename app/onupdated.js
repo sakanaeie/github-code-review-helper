@@ -22,10 +22,8 @@
       $('<div>').addClass('discussion-sidebar-item').append(
         $('<button>').attr('id', button_id).addClass('btn btn-sm').html('Show all comment').click(function() {
           $('.outdated-comment, .outdated-diff-comment-container').each(function() {
-            $(this).addClass('open');
+            $(this).attr('open', 'open');
           });
-
-
         })
       )
     );
